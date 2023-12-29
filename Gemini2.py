@@ -50,7 +50,7 @@ class GeminiParser():
  
         if(webpage.ok == False):
             print("Server Error or Client Error")
-            return
+            #return
 
         #print(webpage.text)
         self.webpage = webpage.text
@@ -186,13 +186,13 @@ ai = Gemini()
 
 #------------------------TRAINING THE A.I----------------------------
 URL = "https://jaedon.vercel.app"
+URL = "https://medium.com/mr-ways-guide-to-clash-of-clans/clash-of-clans-the-ultimate-beginners-guide-830f6d7e0a74"
 ai.set_webpage(URL)
 #-------------------------END OF TRAINING-----------------------------
 
 
 #"""
 while(True):
-    
     print("Webpage Url:= ", URL)
     user_question = input("User >> ")
     if(user_question == "exit"):
@@ -210,3 +210,6 @@ while(True):
     ai.print_response()
     pass
 #"""
+
+
+#NOTE: Need to modify parser to extract content from live DOM and not html
