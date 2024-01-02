@@ -44,7 +44,8 @@ class GeminiParser():
             }
         ]
         pass
-    
+
+ 
     def process_webpage(self, url):
         webpage = requests.get(url)
  
@@ -96,7 +97,11 @@ class GeminiParser():
         for i in range(0, len(chunks)):
             response = self.model.generate_content("Can you please extract all the text content that reader reads on frontend from this chunk? If text is not present then don't save it " + chunks[i])
             
-            self.processed_data.append(response.text)
+            try:
+                self.processed_data.append(response.text)
+            except:
+                print(response.text)
+                pass
         
         print("\n\n", "len", len(self.processed_data))
         print_chunks(self.processed_data)
@@ -119,22 +124,27 @@ class Gemini():
         self.current_response = None
         self.parser = GeminiParser()
         self.safety_configs = [
+                 
             {
                 "category": "HARM_CATEGORY_HARASSMENT",
                 "threshold": "BLOCK_NONE"
             },
+               
             {
                 "category": "HARM_CATEGORY_HATE_SPEECH",
                 "threshold": "BLOCK_NONE"
             },
+
             {
                 "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
                 "threshold": "BLOCK_NONE"
             },
+
             {
                 "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
                 "threshold": "BLOCK_NONE"
             }
+
         ]
         
         print("\033[2J", "\033[H")
@@ -186,7 +196,8 @@ ai = Gemini()
 
 #------------------------TRAINING THE A.I----------------------------
 URL = "https://jaedon.vercel.app"
-URL = "https://medium.com/mr-ways-guide-to-clash-of-clans/clash-of-clans-the-ultimate-beginners-guide-830f6d7e0a74"
+#URL = "https://medium.com/mr-ways-guide-to-clash-of-clans/clash-of-clans-the-ultimate-beginners-guide-830f6d7e0a74"
+#URL = "https://science.howstuffworks.com/space/aliens-ufos/bob-lazar.htm"
 ai.set_webpage(URL)
 #-------------------------END OF TRAINING-----------------------------
 
