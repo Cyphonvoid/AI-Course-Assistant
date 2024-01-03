@@ -59,11 +59,26 @@ class ChatBox {
      this._toolbar.style.position = "relative"
      this._toolbar.style.backgroundColor = "black"
      this._toolbar.style.borderRadius = "0px 0px 10px 10px"
-     
 
+     
      //Toolbar - Send Button
      this._send_button = document.createElement('button')
      this._toolbar.appendChild(this._send_button)
+
+     //Toolbar - Settings Button
+     this._settings_button = document.createElement('button')
+     this._toolbar.appendChild(this._settings_button)
+
+     this._settings_button.style.width = 34 + 'px'
+     this._settings_button.style.height = 34 + 'px'
+     this._settings_button.style.position = "relative"
+     this._settings_button.style.top = "20%"
+     this._settings_button.style.left = "5%"
+     this._settings_button.style.backgroundColor = "blue"
+     this._settings_button.style.borderRadius = "2px 2px 2px 2px"
+     this._settings_button.textContent = ""
+
+     
      
      this._send_button.style.width = 120 + 'px'
      this._send_button.style.height = 34 + 'px'
@@ -91,22 +106,8 @@ class ChatBox {
           }, 90)
         })  
 
-     //Toolbar - Settings Button
-    /* this._settings_button = document.createElement('button')
-     this._toolbar.appendChild(this._settings_button)
-
-     this._settings_button.style.width = 34 + 'px'
-     this._settings_button.style.height = 34 + 'px'
-     this._settings_button.style.position = "relative"
-     this._settings_button.style.top = "20%"
-     this._settings_button.style.left = "5px"
-     this._settings_button.style.backgroundColor = "blue"
-     this._settings_button.style.borderRadius = "2px 2px 2px 2px"
-     this._settings_button.textContent = ""*/
      
-     
-     
-
+    
 
    }
  
