@@ -14,7 +14,6 @@ from selenium.webdriver.common.keys import Keys
 #3) Feed it to the AI to learn
 
 #NOTE: It should work on any given URL
-
 class GeminiParser():
 
     def __init__(self):
@@ -72,6 +71,7 @@ class GeminiParser():
                 print(chunk[i])
                 print("\x1b[31m --} \x1b[0m\n")
                 pass
+        
         j = 0
 
         #print("\x1b[32m", j, "\x1b[0m")
